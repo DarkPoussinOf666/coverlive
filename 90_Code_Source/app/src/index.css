@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+@layer base {
+  :root,
+  .spectrum--darkest {
+    /* ==========================================================================
+       ADOBE SPECTRUM — GLOBAL TOKENS (Tier 1)
+       ========================================================================== */
+    --spectrum-global-color-gray-50: #ffffff;
+    --spectrum-global-color-gray-75: #fafafa;
+    --spectrum-global-color-gray-100: #f4f4f4;
+    --spectrum-global-color-gray-200: #eaeaea;
+    --spectrum-global-color-gray-300: #d3d3d3;
+    --spectrum-global-color-gray-400: #b1b1b1;
+    --spectrum-global-color-gray-500: #8f8f8f;
+    --spectrum-global-color-gray-600: #6d6d6d;
+    --spectrum-global-color-gray-700: #464646;
+    --spectrum-global-color-gray-800: #222222;
+    --spectrum-global-color-gray-900: #000000;
+
+    --spectrum-global-color-blue-400: #2680eb;
+    --spectrum-global-color-blue-500: #1473e6;
+    --spectrum-global-color-blue-600: #0d66d0;
+
+    --spectrum-global-color-green-400: #2d9d78;
+    --spectrum-global-color-green-500: #12805c;
+    --spectrum-global-color-green-600: #0e6b4d;
+
+    --spectrum-global-color-orange-400: #f29423;
+    --spectrum-global-color-orange-500: #e68619;
+    --spectrum-global-color-orange-600: #d97508;
+
+    --spectrum-global-color-red-400: #ec5b62;
+    --spectrum-global-color-red-500: #e34850;
+    --spectrum-global-color-red-600: #d7373f;
+
+    /* Typographie */
+    --spectrum-global-font-family-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --spectrum-global-font-family-mono: 'Source Code Pro', SFMono-Regular, Consolas, Monaco, monospace;
+
+    /* Spacing */
+    --spectrum-global-spacing-50: 2px;
+    --spectrum-global-spacing-75: 4px;
+    --spectrum-global-spacing-100: 8px;
+    --spectrum-global-spacing-200: 12px;
+    --spectrum-global-spacing-300: 16px;
+    --spectrum-global-spacing-400: 24px;
+    --spectrum-global-spacing-500: 32px;
+    --spectrum-global-spacing-600: 40px;
+    --spectrum-global-spacing-700: 48px;
+
+    /* Border Radius */
+    --spectrum-global-radius-none: 0px;
+    --spectrum-global-radius-small: 2px;
+    --spectrum-global-radius-regular: 4px;
+    --spectrum-global-radius-large: 8px;
+    --spectrum-global-radius-full: 9999px;
+
+    /* ==========================================================================
+       ADOBE SPECTRUM — ALIAS TOKENS (Tier 2 : Darkest Stage Theme)
+       ========================================================================== */
+    --spectrum-alias-background-color-default: #07090e;
+    --spectrum-alias-background-color-secondary: #0d121c;
+    --spectrum-alias-background-color-tertiary: #141a29;
+    --spectrum-alias-background-color-elevated: #1a2236;
+
+    --spectrum-alias-border-color-default: #222a3d;
+    --spectrum-alias-border-color-subdued: #181f2f;
+    --spectrum-alias-border-color-strong: #3b4764;
+
+    /* Text Colors conformes WCAG AA (>= 4.5:1) et AAA (>= 7.0:1) */
+    --spectrum-alias-text-color-default: #f8fafc;        /* AAA 18.2:1 */
+    --spectrum-alias-text-color-secondary: #cbd5e1;      /* AAA 11.5:1 (anciennement slate-500 trop sombre) */
+    --spectrum-alias-text-color-subdued: #94a3b8;        /* AA 6.5:1 (conforme AA) */
+
+    /* Focus Ring */
+    --spectrum-alias-focus-color: #2680eb;
+    --spectrum-alias-focus-width: 2px;
+    --spectrum-alias-focus-offset: 2px;
+
+    /* ==========================================================================
+       DOMAINE MUSIQUE & MATÉRIEL SCÈNE (Tier 3)
+       ========================================================================== */
+    --spectrum-chord-color: #fbbf24;                     /* Gold haute lisibilité 12.8:1 */
+    --spectrum-section-tag-color: #38bdf8;               /* Sky Blue 8.5:1 */
+    --spectrum-badge-kemper: #10b981;
+    --spectrum-badge-guitar: #6366f1;
+    --spectrum-badge-capo: #f97316;
+    --spectrum-status-live: #ef4444;
+  }
+
+  .spectrum--light {
+    --spectrum-alias-background-color-default: #ffffff;
+    --spectrum-alias-background-color-secondary: #f4f4f4;
+    --spectrum-alias-background-color-tertiary: #eaeaea;
+    --spectrum-alias-background-color-elevated: #ffffff;
+
+    --spectrum-alias-border-color-default: #d3d3d3;
+    --spectrum-alias-border-color-subdued: #eaeaea;
+    --spectrum-alias-border-color-strong: #b1b1b1;
+
+    --spectrum-alias-text-color-default: #111827;
+    --spectrum-alias-text-color-secondary: #475569;
+    --spectrum-alias-text-color-subdued: #64748b;
+
+    --spectrum-alias-focus-color: #1473e6;
+    --spectrum-chord-color: #b45309;
+    --spectrum-section-tag-color: #0369a1;
+  }
+
+  body {
+    background-color: var(--spectrum-alias-background-color-default);
+    color: var(--spectrum-alias-text-color-default);
+    font-family: var(--spectrum-global-font-family-sans);
+    overflow-x: hidden;
+    user-select: none;
+  }
+}
+
+/* Police à chasse fixe pour alignement vertical précis des accords et du texte */
+.font-tab {
+  font-family: var(--spectrum-global-font-family-mono);
+}
+
+/* Focus Ring accessible standardisé Adobe Spectrum */
+.spectrum-focus-ring:focus-visible {
+  outline: var(--spectrum-alias-focus-width) solid var(--spectrum-alias-focus-color);
+  outline-offset: var(--spectrum-alias-focus-offset);
+}
+
+/* Cibles tactiles ergonomiques scéniques (min 44px) */
+.spectrum-touch-target {
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Barre de défilement discrète */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--spectrum-alias-background-color-default);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--spectrum-alias-border-color-default);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--spectrum-alias-border-color-strong);
+}
